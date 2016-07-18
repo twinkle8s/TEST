@@ -22,7 +22,7 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Show Task Dashboard
      */
-    Route::get('/', function () {
+    Route::get('/test', function () {
         return view('tasks', [
             'tasks' => Task::orderBy('created_at', 'asc')->get()
         ]);
@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web']], function () {
      */
     Route::delete('/task/{id}', function ($id) {
         Task::findOrFail($id)->delete();
-        
+
         return redirect('/');
     });
 });
